@@ -1,0 +1,190 @@
+<div class="container-fluid p-1 d-flex h-100 flex-column">
+  <div class="d-flex mb-2">
+    <div style="width:280px;">
+      <h3 class="d-inline pl-3"><a routerLink="/">工作目标</a> / 详情</h3>
+    </div>
+    <div class="mx-auto"></div>
+    <div class="mx-right">
+      <button kendoButton class="mr-1">
+        <i class="material-icons align-middle" style="font-size:18px">add</i> 新建
+      </button>
+      <button kendoButton class="mr-1">
+        <i class="material-icons align-middle" style="font-size:18px">edit</i> 编辑
+      </button>
+      <button kendoButton class="mr-1">
+        <i class="material-icons align-middle" style="font-size:18px">undo</i> 取消
+      </button>
+      <button kendoButton [primary]="true">
+        <i class="material-icons align-middle" style="font-size:18px">save</i> 保存
+      </button>
+    </div>
+  </div>
+  <div class="d-flex h-100">
+    <div class="w-100" style="overflow-y:auto;">
+      <kendo-tabstrip class="w-100">
+        <kendo-tabstrip-tab [title]="'基本信息'" [selected]="true">
+          <ng-template kendoTabContent>
+            <div class="d-flex flex-column">
+              <form class="k-form p-2 col-12">
+                <div class="row">
+                  <div class="col-12">
+                    <fieldset>
+                      <legend>目标信息</legend>
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="k-form-field">
+                            <span>简述
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" placeholder="目标简述" />
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="k-form-field">
+                            <span>达成标志
+                              <span class="k-required">*</span>
+                            </span>
+                            <textarea kendoTextArea style="width:100%;"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>期望达成时间
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" />
+                          </label>
+                        </div>
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>期望达成比例
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" />
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>优先级
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" />
+                          </label>
+                        </div>
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>创建人
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" />
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="k-form-field">
+                            <span>Tags</span>
+                            <kendo-multiselect></kendo-multiselect>
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 ">
+                    <fieldset class="my-3">
+                      <legend>进展状况</legend>
+                      <div class="row">
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>负责人
+                              <span class="k-required">*</span>
+                            </span>
+                            <kendo-multiselect></kendo-multiselect>
+                          </label>
+                        </div>
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>督办人
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" />
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>进度
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" placeholder="任务完成进度" />
+                          </label>
+                        </div>
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>状态
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" placeholder="任务当前状态" />
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>实际达成时间
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" placeholder="任务完成进度" />
+                          </label>
+                        </div>
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>实际达成比例
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" placeholder="任务当前状态" />
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <fieldset class="my-3">
+                      <legend>实现计划</legend>
+                      <kendo-grid [resizable]="true" [selectable]="true" [kendoGridSelectBy]="'id'" [selectedKeys]="[]">
+                        <kendo-grid-column field="icon" title="" width="64">
+                          <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                            <!-- <div class="d-flex flex-row"> -->
+                            <img src="/assets/icons/{{dataItem.owner.avatar}}" width="32" height="32" alt="" class="d-inline-block align-middle rounded-circle">
+                            <!-- </div>       -->
+                          </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column field="owner.firstName" title="负责人" [width]="120"></kendo-grid-column>
+                        <kendo-grid-column field="title" title="简述"></kendo-grid-column>
+                        <kendo-grid-column field="status" title="状态" [width]="80"></kendo-grid-column>
+                        <kendo-grid-column field="progress" title="进度" [width]="200"></kendo-grid-column>
+                      </kendo-grid>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </ng-template>
+        </kendo-tabstrip-tab>
+        <kendo-tabstrip-tab [title]="'历史变更记录'"></kendo-tabstrip-tab>
+        <kendo-tabstrip-tab [title]="'附件'"></kendo-tabstrip-tab>
+      </kendo-tabstrip>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/">首页</a>
+    </li>
+    <li class="breadcrumb-item active">月度计划</li>
+  </ol>
+</nav>
+<div class="container-fluid d-flex h-100 flex-column">
+  <div class="d-flex pb-3">
+    <div>
+      <img src="./assets/img/monthly.plan.png" style="width:64px;height:64px;" class="rounded">
+      <h4 class="d-inline pl-3">
+        <a routerLink="/monthly">月度计划</a> / 详情</h4>
+    </div>
+    <div class="mx-auto"></div>
+    <div class="mx-right">
+      <button kendoButton>
+        <i class="material-icons align-middle" style="font-size:18px">add</i> 新建
+      </button>
+      <button kendoButton>
+        <i class="material-icons align-middle" style="font-size:18px">edit</i> 编辑
+      </button>
+      <button kendoButton>
+        <i class="material-icons align-middle" style="font-size:18px">undo</i> 取消
+      </button>
+      <button kendoButton [primary]="true">
+        <i class="material-icons align-middle" style="font-size:18px">save</i> 保存
+      </button>
+    </div>
+  </div>
+  <div class="d-flex h-100">
+    <div class="w-100" style="overflow-y:auto;">
+      <kendo-tabstrip class="w-100">
+        <kendo-tabstrip-tab [title]="'基本信息'" [selected]="true">
+          <ng-template kendoTabContent>
+            <div class="d-flex">
+              <form class="k-form col-12" style="max-width:800px;">
+                <div class="row">
+                  <div class="col-12">
+                  <fieldset>
+                    <legend>任务信息</legend>
+                    <label class="k-form-field">
+                      <span>简述
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" placeholder="任务简述" />
+                    </label>
+                  </fieldset></div>
+                </div>
+                <div class="row">
+                  <div class="col-6 ">
+                    <fieldset class="my-3">
+                      <legend>分配信息</legend>
+                      <label class="k-form-field">
+                        <span>负责人
+                          <span class="k-required">*</span>
+                        </span>
+                        <input class="k-textbox" placeholder="指定负责人" />
+                      </label>
+                      <label class="k-form-field">
+                        <span>计划完成日期
+                          <span class="k-required">*</span>
+                        </span>
+                        <input class="k-textbox" placeholder="制定计划完成日期" />
+                      </label>
+                    </fieldset>
+                  </div>
+                  <div class="col-6 ">
+                    <fieldset class="my-3">
+                      <legend>完成情况</legend>
+                      <label class="k-form-field">
+                        <span>状态
+                          <span class="k-required">*</span>
+                        </span>
+                        <input class="k-textbox" placeholder="任务当前状态" />
+                      </label>
+                      <label class="k-form-field">
+                        <span>进度
+                          <span class="k-required">*</span>
+                        </span>
+                        <input class="k-textbox" placeholder="任务完成进度" />
+                      </label>
+                      <label class="k-form-field">
+                        <span>实际完成日期
+                          <span class="k-required">*</span>
+                        </span>
+                        <input class="k-textbox" placeholder="任务完成日期" />
+                      </label>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </ng-template>
+        </kendo-tabstrip-tab>
+      </kendo-tabstrip>
+    </div>
+  </div>
+</div>

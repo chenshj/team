@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+// Bootstrap and its default variables
+@import "node_modules/bootstrap/scss/bootstrap";
+
+body {
+  margin: 0;
+  height: calc(100vh);
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-toggle::after {
+  vertical-align: middle
+}
+
+.bd-sidebar {
+  border-bottom: none;
+  /* max-width: 240px; */
+  display: none;
+}
+
+.bd-content {
+  height: calc(100vh - 7rem);
+  overflow-y: scroll;
+}
+
+@media (min-width: 768px) {
+  .bd-sidebar {
+    height: calc(100vh - 7rem);
+    display: initial;
+  }
+}
+
+.ui-widget-content {
+  color: #656565;
+  background-color: #fff;
+  border-color: rgba(0, 0, 0, .08);
+}
+
+.ui-state-highlight {
+  color: inherit;
+  background-color: rgba(255, 99, 88, .25);
+}
+
+.teamwork-tile {
+  width: 160px;
+  height: 160px;
+  cursor: pointer;
+  margin: 0.25rem;
+}
+
+.teamwork-tile img {
+  width: 72px;
+  height: 72px;
+}
+
+.teamwork-tile>.card-body {
+  padding: 0.8rem;
+}
+
+.k-tabstrip>.k-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.fill-window .k-window-content {
+  display: flex;
+  flex-flow: column;
+}
+
+.fill-tab-strip {
+  flex: 1;
+}
+
+.fill-tab-strip>.k-content {
+  display: flex !important;
+  flex-flow: column;
+}

@@ -1,0 +1,128 @@
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/">首页</a>
+    </li>
+    <li class="breadcrumb-item active">周计划</li>
+  </ol>
+</nav>
+<div class="container-fluid d-flex h-100 flex-column">
+  <div class="d-flex pb-3">
+    <div>
+      <img src="./assets/img/monthly.plan.png" style="width:64px;height:64px;" class="rounded">
+      <h4 class="d-inline pl-3">
+        <a routerLink="/weekly">周计划</a> / 详情</h4>
+    </div>
+    <div class="mx-auto"></div>
+    <div class="mx-right">
+      <button kendoButton>
+        <i class="material-icons align-middle" style="font-size:18px">add</i> 新建
+      </button>
+      <button kendoButton>
+        <i class="material-icons align-middle" style="font-size:18px">edit</i> 编辑
+      </button>
+      <button kendoButton>
+        <i class="material-icons align-middle" style="font-size:18px">undo</i> 取消
+      </button>
+      <button kendoButton [primary]="true">
+        <i class="material-icons align-middle" style="font-size:18px">save</i> 保存
+      </button>
+    </div>
+  </div>
+  <div class="d-flex h-100">
+    <div class="w-100" style="overflow-y:auto;">
+      <kendo-tabstrip class="w-100">
+        <kendo-tabstrip-tab [title]="'基本信息'" [selected]="true">
+          <ng-template kendoTabContent>
+            <div class="d-flex flex-column">
+              <form class="k-form col-12" style="max-width:800px;">
+                <div class="row">
+                  <div class="col-6">
+                    <label class="k-form-field">
+                      <span>项目
+                        <span class="k-required">*</span>
+                      </span>
+                      <div class="d-flex">
+                        <input class="k-textbox w-100" placeholder="选择项目" />
+                        <button kendoButton [look]="'bare'">
+                          <i class="material-icons align-middle" style="font-size:18px">filter_none</i>
+                        </button>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="col-6">
+                    <label class="k-form-field">
+                      <span>任务类别
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" placeholder="年度任务/月度待办/临时交办/个人待办" />
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <label class="k-form-field">
+                      <span>任务
+                        <span class="k-required">*</span>
+                      </span>
+                      <div class="d-flex">
+                        <input class="k-textbox w-100" placeholder="选择或新建任务" />
+                        <button kendoButton [look]="'bare'">
+                          <i class="material-icons align-middle" style="font-size:18px">filter_none</i>
+                        </button>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 ">
+                    <fieldset class="mt-3">
+                      <legend>任务评估</legend>
+                      <div class="row">
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>资源投入
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" placeholder="本周投入百分比" />
+                          </label>
+                        </div>
+                        <div class="col-6">
+                          <label class="k-form-field">
+                            <span>预计完成度
+                              <span class="k-required">*</span>
+                            </span>
+                            <input class="k-textbox" placeholder="本周预计完成百分比" />
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+              <kendo-tabstrip class="w-100">
+                <kendo-tabstrip-tab [title]="'任务检查项'" [selected]="true">
+                  <ng-template kendoTabContent>
+                    <div class="mb-1">
+                      <button kendoButton (click)="open()">
+                        <i class="material-icons align-middle" style="font-size:18px">add</i>
+                      </button>
+                      <button kendoButton>
+                        <i class="material-icons align-middle" style="font-size:18px">remove</i>
+                      </button>
+                    </div>
+                    <kendo-grid class="h-100" [resizable]="true" [pageable]="true" [pageSize]="10" [selectable]="true">
+                      <kendo-grid-column field="category" title="类别" [width]="120"></kendo-grid-column>
+                      <kendo-grid-column field="content" title="检查项内容" [width]="400"></kendo-grid-column>
+                      <kendo-grid-column field="indicator" title="指标"></kendo-grid-column>
+                    </kendo-grid>
+                  </ng-template>
+                </kendo-tabstrip-tab>
+              </kendo-tabstrip>
+            </div>
+          </ng-template>
+        </kendo-tabstrip-tab>
+      </kendo-tabstrip>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/">首页</a>
+    </li>
+    <li class="breadcrumb-item active">月度计划</li>
+  </ol>
+</nav>
+<div class="container-fluid d-flex h-100 flex-column">
+  <div class="d-flex mb-3">
+    <div style="width:200px;">
+      <h3 class="d-inline pl-3">月度计划</h3>
+    </div>
+    <div class="mx-auto"></div>
+    <div class="mx-right">
+      <button kendoButton [primary]="true" routerLink="details">
+        <i class="material-icons align-middle" style="font-size:18px">add</i> 新建
+      </button>
+      <button kendoButton>
+        <i class="material-icons align-middle" style="font-size:18px">edit</i> 编辑
+      </button>
+      <button kendoButton>
+        <i class="material-icons align-middle" style="font-size:18px">delete</i> 删除
+      </button>
+    </div>
+  </div>
+  <div class="d-flex mb-2" style="height:36px;">
+    <div class="mr-auto">
+      <form *ngIf="showFilter" class="w-100 k-form-inline py-0 mb-2" style="display:inline-flex;">
+        <label class="k-form-field mb-0" style="width:280px;height:2rem;">
+          <kendo-datepicker [activeView]="'year'" [bottomView]="'year'" format="yyyy年MM月" placeholder="请选择月份"></kendo-datepicker>
+        </label>
+      </form>
+    </div>
+    <button kendoButton class="p-0 mr-1" style="width:28px;height:28px;" (click)="toggleFilter()">
+      <i class="material-icons align-middle">filter_list</i>
+    </button>
+    <button kendoButton class="p-0 mr-1" style="width:28px;height:28px;">
+      <i class="material-icons align-middle">view_compact</i>
+    </button>
+    <button kendoButton class="p-0 mr-1" style="width:28px;height:28px;">
+      <i class="material-icons align-middle">view_comfy</i>
+    </button>
+    <button kendoButton class="p-0 mr-1" style="width:28px;height:28px;">
+      <i class="material-icons align-middle">view_list</i>
+    </button>
+    <button kendoButton class="p-0 mr-1" style="width:28px;height:28px;">
+      <i class="material-icons align-middle">event_note</i>
+    </button>
+    <button kendoButton class="p-0 mr-1" style="width:28px;height:28px;">
+      <i class="material-icons align-middle">show_chart</i>
+    </button>
+  </div>
+  <div class="d-flex flex-column h-100">
+    <kendo-grid class="h-100" [resizable]="true" [pageable]="true" [pageSize]="10" [selectable]="true"
+      [kendoGridSelectBy]="'id'" [selectedKeys]="[]" farrisBindingPath="/">
+      <kendo-grid-column field="icon" title="" width="64">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+          <!-- <div class="d-flex flex-row"> -->
+          <img src="/assets/icons/{{dataItem.owner.avatar}}" width="32" height="32" alt="" class="d-inline-block align-middle rounded-circle">
+          <!-- </div>       -->
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="owner.firstName" title="负责人" [width]="120"></kendo-grid-column>
+      <kendo-grid-column field="title" title="简述"></kendo-grid-column>
+      <kendo-grid-column field="priority" title="优先级" [width]="80"></kendo-grid-column>
+      <kendo-grid-column field="status" title="状态" [width]="80"></kendo-grid-column>
+      <kendo-grid-column field="progress" title="进度" [width]="200"></kendo-grid-column>
+
+    </kendo-grid>
+  </div>
+</div>

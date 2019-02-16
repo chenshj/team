@@ -1,0 +1,19 @@
+<div class="container-fluid" style="padding-top:20px;">
+  <div class="d-table pb-1">
+    <div class="teamwork-tile card rounded d-inline-flex" routerLink="/monthly">
+      <div class="card-body">
+        <h4 class="card-title">月度任务</h4>
+      </div>
+    </div>
+    <div class="teamwork-tile card rounded d-inline-flex" routerLink="/weekly">
+      <div class="card-body">
+        <h4 class="card-title">周计划</h4>
+      </div>
+    </div>
+    <div class="teamwork-tile card rounded d-inline-flex" (click)="openWeeklyReport();">
+      <div class="card-body">
+        <h4 class="card-title">周总结</h4>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container-fluid p-1 d-flex h-100 flex-column">
+  <div class="d-flex mb-2">
+    <div style="width:200px;">
+      <h3 class="d-inline pl-3">工作反馈</h3>
+    </div>
+    <div class="mx-auto"></div>
+    <div class="mx-right">
+      <button kendoButton class="mr-1" [primary]="true" routerLink="/detail">
+        <i class="material-icons align-middle" style="font-size:18px">add</i> 更新
+      </button>
+    </div>
+  </div>
+  <div class="d-flex h-100">
+    <div class="mr-1 h-100" style="width:272px;overflow-y: auto">
+      <kendo-panelbar>
+        <kendo-panelbar-item [title]="'日历'" expanded="true">
+          <ng-template kendoPanelBarContent>
+            <kendo-calendar [navigation]="false"></kendo-calendar>
+          </ng-template>
+        </kendo-panelbar-item>
+      </kendo-panelbar>
+    </div>
+    <div class="d-flex flex-column" style="flex:1;">
+      <kendo-grid class="h-100" [resizable]="true" [pageable]="true" [pageSize]="10" [selectable]="true"
+        [kendoGridSelectBy]="'id'" [selectedKeys]="[]" farrisBindingPath="/">
+        <kendo-grid-column field="icon" title="" width="64">
+          <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            <img src="/assets/icons/{{dataItem.owner.avatar}}" width="32" height="32" alt="" class="d-inline-block align-middle rounded-circle">
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="owner.firstName" title="负责人" [width]="120"></kendo-grid-column>
+        <kendo-grid-column field="title" title="简述"></kendo-grid-column>
+        <kendo-grid-column field="priority" title="优先级" [width]="80"></kendo-grid-column>
+        <kendo-grid-column field="status" title="状态" [width]="80"></kendo-grid-column>
+        <kendo-grid-column field="progress" title="进度" [width]="200"></kendo-grid-column>
+      </kendo-grid>
+    </div>
+  </div>
+</div>
