@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head lang='en'>
+	<base href="/">
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width'>
+	<link rel='icon' type='image/png' href='/favicon.png'>
+
+	<title>Rollup demo</title>
+	<link rel="stylesheet" href="assets/bootstrap.min.css">
+</head>
+
+<body>
+	<obj-root></obj-root>
+
+	<script type="systemjs-importmap">
+		{{=it.importMap()}}
+	</script>
+
+	<script src="{{=it.polyfillsPath()}}"></script>
+	<script>
+		//pre-fetching libs. useful?
+		//Maybe. See https://developers.google.com/web/fundamentals/primers/modules , "Preload Modules"
+		System.import('@angular/core');
+		System.import('@angular/common');
+		System.import('@angular/platform-browser');
+		System.import('rxjs');
+		System.import('rxjs/operators');
+		System.import('@progress/kendo-angular-buttons');
+		System.import('@progress/kendo-angular-dateinputs');
+		System.import('@progress/kendo-angular-grid');
+		System.import('@progress/kendo-angular-inputs');
+		System.import('@progress/kendo-angular-label');
+		System.import('@progress/kendo-angular-layout');
+		System.import('@progress/kendo-angular-dropdowns');
+		//Load Application
+		System.import('main');
+
+	</script>
+</body>
+
+</html>

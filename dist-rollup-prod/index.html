@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head lang='en'>
+	<base href="/">
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width'>
+	<link rel='icon' type='image/png' href='/favicon.png'>
+
+	<title>Rollup demo</title>
+	<link rel="stylesheet" href="assets/bootstrap.min.css">
+</head>
+
+<body>
+	<app-root></app-root>
+
+	<script type="systemjs-importmap">
+		{"imports":{"@angular/core":"@angular/core.ac778e5739.js","@angular/common":"@angular/common.6d0d1ea72e.js","@angular/platform-browser":"@angular/platform-browser.6e3ffcfb81.js","@angular/forms":"@angular/forms.591a7fa867.js","@angular/router":"@angular/router.061c636fa9.js","rxjs":"rxjs.1f1301d8fd.js","rxjs/operators":"rxjs/operators.3167b8aada.js","home":"home/home.da25566fa3.js","main":"main.760d8485f6.js"}}
+	</script>
+
+	<script src="polyfills.4cccc8e4b9.js"></script>
+	<script>
+		//pre-fetching libs. useful?
+		//Maybe. See https://developers.google.com/web/fundamentals/primers/modules , "Preload Modules"
+		System.import('@angular/core');
+		System.import('@angular/common');
+		System.import('@angular/platform-browser');
+		System.import('rxjs');
+		System.import('rxjs/operators');
+
+		//Load Application
+		System.import('main');
+
+	</script>
+</body>
+
+</html>

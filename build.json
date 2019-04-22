@@ -1,0 +1,51 @@
+{
+    "libs": {
+        "polyfills": {
+            "entry": "src/polyfills.js",
+            "polyfill": true,
+            "needsCommonJS": true
+        },
+        "@angular/core": {},
+        "@angular/common": {},
+        "@angular/platform-browser": {},
+        "@angular/forms": {},
+        "@angular/router": {},
+        "rxjs": {
+            "sourceMaps": true
+        },
+        "rxjs/operators": {
+            "sourceMaps": true
+        },
+        "home": {
+            "entry": "src/app/home/home.module.ngfactory.js",
+            "sourceMaps": true,
+            "output": "home"
+        },
+        "main": {
+            "entry": "src/main.js",
+            "sourceMaps": true
+        }
+    },
+    "format": "system",
+    "importAlias": {
+        "app/common": "@app/common"
+    },
+    "ngcOut": "out-tsc/app",
+    "indexHtmlTemplate": "src/index.rollup.html",
+    "env": {
+        "dev": {
+            "dist": "dist-rollup",
+            "uglify": false,
+            "hash": true,
+            "indexHtml": true,
+            "serve": true
+        },
+        "prod": {
+            "dist": "dist-rollup-prod",
+            "uglify": true,
+            "hash": true,
+            "indexHtml": true,
+            "serve": true
+        }
+    }
+}

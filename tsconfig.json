@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -23,6 +23,12 @@
       ],
       "app-common/*": [
         "dist/app-common/*"
+      ],
+      "cli": [
+        "dist/cli"
+      ],
+      "cli/*": [
+        "dist/cli/*"
       ]
     }
   }

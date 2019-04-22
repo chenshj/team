@@ -1,0 +1,52 @@
+{
+    "libs": {
+        "polyfills": {
+            "entry": "src/polyfills.js",
+            "polyfill": true,
+            "needsCommonJS": true
+        },
+        "@angular/core": {},
+        "@angular/common": {},
+        "@angular/platform-browser": {},
+        "@angular/forms": {},
+        "@angular/router": {},
+        "@progress/kendo-angular-buttons": {},
+        "@progress/kendo-angular-dateinputs": {},
+        "@progress/kendo-angular-grid": {},
+        "@progress/kendo-angular-inputs": {},
+        "@progress/kendo-angular-label": {},
+        "@progress/kendo-angular-layout": {},
+        "@progress/kendo-angular-dropdowns": {},
+        "rxjs": {
+            "sourceMaps": true
+        },
+        "rxjs/operators": {
+            "sourceMaps": true
+        },
+        "main": {
+            "entry": "src/main.js",
+            "sourceMaps": true
+        }
+    },
+    "format": "system",
+    "importAlias": {
+        "app/common": "@app/common"
+    },
+    "ngcOut": "out-tsc/app/projects/plan",
+    "indexHtmlTemplate": "projects/plan/src/index.rollup.html",
+    "env": {
+        "dev": {
+            "dist": "dist-rollup/plan",
+            "uglify": false,
+            "hash": true,
+            "indexHtml": true,
+            "serve": true
+        },
+        "prod": {
+            "dist": "dist-rollup-prod/plan",
+            "uglify": true,
+            "hash": true,
+            "indexHtml": true
+        }
+    }
+}

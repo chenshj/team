@@ -1,0 +1,39 @@
+{
+    "libs": {
+        "@angular/core": {},
+        "@angular/common": {},
+        "@angular/platform-browser": {},
+        "@angular/forms": {},
+        "@angular/router": {},
+        "rxjs": {
+            "sourceMaps": true
+        },
+        "rxjs/operators": {
+            "sourceMaps": true
+        },
+        "app-common": {
+            "entry": "src/public_api.js",
+            "sourceMaps": true
+        }
+    },
+    "format": "system",
+    "importAlias": {
+        "app/common": "@app/common"
+    },
+    "ngcOut": "out-tsc/lib/projects/app-common",   
+    "env": {
+        "dev": {
+            "dist": "dist-rollup/app-common",
+            "uglify": false,
+            "hash": true,
+            "indexHtml": true,
+            "serve": true
+        },
+        "prod": {
+            "dist": "dist-rollup-prod/app-common",
+            "uglify": true,
+            "hash": true,
+            "indexHtml": true
+        }
+    }
+}

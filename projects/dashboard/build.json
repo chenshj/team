@@ -1,0 +1,45 @@
+{
+    "libs": {
+        "polyfills": {
+            "entry": "src/polyfills.js",
+            "polyfill": true,
+            "needsCommonJS": true
+        },
+        "@angular/core": {},
+        "@angular/common": {},
+        "@angular/platform-browser": {},
+        "@angular/forms": {},
+        "@angular/router": {},
+        "rxjs": {
+            "sourceMaps": true
+        },
+        "rxjs/operators": {
+            "sourceMaps": true
+        },
+        "main": {
+            "entry": "src/main.js",
+            "sourceMaps": true
+        }
+    },
+    "format": "system",
+    "importAlias": {
+        "app/common": "@app/common"
+    },
+    "ngcOut": "out-tsc/app/projects/dashboard",
+    "indexHtmlTemplate": "projects/dashboard/src/index.rollup.html",
+    "env": {
+        "dev": {
+            "dist": "dist-rollup/dashboard",
+            "uglify": false,
+            "hash": true,
+            "indexHtml": true,
+            "serve": true
+        },
+        "prod": {
+            "dist": "dist-rollup-prod/dashboard",
+            "uglify": true,
+            "hash": true,
+            "indexHtml": true
+        }
+    }
+}

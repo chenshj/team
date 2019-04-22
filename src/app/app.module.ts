@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FrameworkModule } from './framework/framework.module';
 import { HomeModule } from './home/home.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,16 @@ import { HomeModule } from './home/home.module';
   ],
   imports: [
     BrowserModule,
+    // Add .withServerTransition() to support Universal rendering.
+    // The application ID can be any identifier which is unique on
+    // the page.
+    BrowserModule.withServerTransition({ appId: 'team2018' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     FrameworkModule,
     HomeModule,
-    IntlModule
+    IntlModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [{
     provide: LOCALE_ID, useValue: 'zh-ZH'
